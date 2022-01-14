@@ -41,14 +41,6 @@ def getspecificinfo(info, patients):
         print("Nome" + name)
 
     #tpExam
-    #if re.search(r'(?<=Tipo de Exame\n)(.*)(?=)', info) is None:
-    #    if re.search(r'(?<=Tipo de Exame Data Ficha\n)(.*)(?= )', info) is None:
-    #        tpExam = ""
-    #    else:
-    #        tpExam = re.search(r'(?<=Tipo de Exame Data Ficha\n)(.*)(?= )', info).group(0)
-    #else:
-    #    tpExam = re.search(r'(?<=Tipo de Exame\n)(.*)(?=)', info).group(0)
-
     if re.search(r'Admissional', info) is None:
         if re.search(r'Demissional', info) is None:
             if re.search(r'Periódico', info) is None:

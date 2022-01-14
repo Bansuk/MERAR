@@ -36,7 +36,7 @@ def correctformat(patientlist, patient):
     elif patient.tpExam == "Retorno ao Trabalho":
         tpExam = "RAT"
     else:
-        tpExam =""
+        tpExam = ""
     patient.name = re.sub(r'[\\/\:*"<>\|\.%\$\^&£?]', '', patient.name)
     if patient.name == "RJ":
         return str(k) + ".pdf"
@@ -45,34 +45,10 @@ def correctformat(patientlist, patient):
     elif patient.name == "" and patient.tpExam != "" and patient.date != "":
         return str(k) + hyphen + tpExam + hyphen + TextHandling.substitute(patient.date, "/", "-") + ".pdf"
     return patient.company + hyphen + patient.name.upper() + hyphen + tpExam + hyphen + TextHandling.substitute(patient.date, "/", "-") + ".pdf"
-    #return checkduplicates(patientlist, filename)
-
-def checkduplicates(filenamelist, filename):
-
-    for i in filenamelist:
-        if filename == i:
-            return str(k) + filename
-    return filename
-
-def movefiles(patient):
-
-    if patient.company is None:
-
-
-
-
 
 
 def imagetreatment(imageName, source, i):
     img = cv.imread(imageName)
-    #img = cv.resize(img, None, fx=1.5, fy=1.5, interpolation=cv.INTER_CUBIC)
-    #img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-    #kernel = np.ones((0, 0), np.uint8)
-    #kernel1 = np.ones((3, 3), np.uint8)
-    #img = cv.dilate(img, kernel, iterations=1)
-    #img = cv.erode(img, kernel1, iterations=1)
-    #img = cv.adaptiveThreshold(img, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2)
-    # Save the filtered image in the output directory
     save_path = os.path.join(source + "\\" + TextHandling.substitute(i, "pdf", "jpeg"))
     cv.imwrite(save_path, img)
 
